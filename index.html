@@ -199,11 +199,13 @@
 	</footer>
 
 	<dialog id="lightbox" class="lightbox" aria-label="Screenshot">
-		<form method="dialog">
-			<button type="submit" class="lb-close" aria-label="Close">&times;</button>
-		</form>
-		<img id="lb-img" src="" alt="">
-		<p id="lb-cap" class="lb-cap"></p>
+		<div class="lb-frame">
+			<form method="dialog" class="lb-close-form">
+				<button type="submit" class="lb-close" aria-label="Close">&times;</button>
+			</form>
+			<img id="lb-img" src="" alt="">
+			<p id="lb-cap" class="lb-cap"></p>
+		</div>
 	</dialog>
 
 	<script src="landing.js" defer></script>

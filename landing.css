@@ -533,15 +533,28 @@ a {
 .lightbox {
 	border: 0;
 	padding: 0;
-	max-width: min(1100px, 96vw);
+	margin: auto;
+	max-width: min(1100px, calc(100vw - 2rem));
+	width: min(1100px, calc(100vw - 2rem));
 	background: transparent;
 	color: #fff;
+	overflow: visible;
 }
 .lightbox::backdrop {
 	background: rgba(0, 0, 0, 0.82);
 }
-.lightbox img {
+.lb-frame {
+	position: relative;
 	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	border-radius: 12px;
+}
+.lightbox img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
 	border-radius: 12px;
 	box-shadow: var(--shadow);
 }
@@ -550,12 +563,20 @@ a {
 	text-align: center;
 	font-weight: 700;
 }
-.lb-close {
+.lb-close-form {
 	position: absolute;
-	top: -0.2rem;
-	right: -0.2rem;
+	top: 0.55rem;
+	right: 0.55rem;
+	margin: 0;
+	z-index: 2;
+}
+.lb-close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 2.4rem;
 	height: 2.4rem;
+	padding: 0;
 	border: 0;
 	border-radius: 999px;
 	background: var(--yellow);
@@ -563,11 +584,7 @@ a {
 	font-size: 1.5rem;
 	line-height: 1;
 	cursor: pointer;
-	z-index: 2;
-}
-.lightbox form {
-	position: relative;
-	margin: 0;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
