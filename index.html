@@ -1,245 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>Arcade Soccer</title>
-		<style>
-html, body, #canvas {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
+<html lang="tr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mega Soccer</title>
+	<meta name="description" content="Arcade 11v11 soccer. Play football, don't manage it. Free in the browser or download for Windows and macOS.">
+	<meta property="og:title" content="Mega Soccer">
+	<meta property="og:description" content="Arcade 11v11 soccer. Play football, don't manage it.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://halilibrahimkalkan.com/mega-soccer/">
+	<meta property="og:image" content="https://halilibrahimkalkan.com/mega-soccer/img/og.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+	<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
-}
+	<header class="top">
+		<div class="brand">MEGA SOCCER</div>
+		<nav class="lang" aria-label="Language">
+			<button type="button" class="lang-btn" data-lang="tr" aria-pressed="true">TR</button>
+			<button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+		</nav>
+	</header>
 
-#canvas {
-	display: block;
-}
+	<main id="main">
+		<section class="hero" style="--hero: url('img/hero.jpg')">
+			<div class="hero-veil"></div>
+			<div class="hero-inner">
+				<p class="eyebrow" data-i18n="eyebrow">Arcade 11 v 11</p>
+				<h1 class="logo">MEGA SOCCER</h1>
+				<p class="tagline" data-i18n="tagline">Play football. Don't manage it.</p>
+				<p class="lede" data-i18n="lede">Full pitch, cute players, honest rules. No attributes, no stamina bars, no tactics sliders — just the match.</p>
+				<div class="cta-row">
+					<a class="btn btn-play" href="play/" data-i18n="cta_play">Play in browser</a>
+					<a class="btn btn-ghost" href="#download" data-i18n="cta_download">Download</a>
+				</div>
+				<p class="mobile-note" data-i18n="mobile_note">Best on desktop with keyboard or gamepad.</p>
+			</div>
+		</section>
 
-#canvas:focus {
-	outline: none;
-}
+		<section class="section shots" id="shots" aria-labelledby="shots-title">
+			<div class="wrap">
+				<h2 id="shots-title" data-i18n="shots_title">On the pitch</h2>
+				<p class="section-lead" data-i18n="shots_lead">Broadcast camera, night floodlights, free kicks and walkouts — the whole match day in one arcade package.</p>
+				<ul class="shot-grid">
+					<li>
+						<button type="button" class="shot" data-full="img/goal.jpg" data-caption-key="cap_goal">
+							<img src="img/goal.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_goal">Goal</span>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="shot" data-full="img/walkout.jpg" data-caption-key="cap_walkout">
+							<img src="img/walkout.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_walkout">Walkout</span>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="shot" data-full="img/free_kick.jpg" data-caption-key="cap_free_kick">
+							<img src="img/free_kick.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_free_kick">Free kick</span>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="shot" data-full="img/close.jpg" data-caption-key="cap_close">
+							<img src="img/close.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_close">Close camera</span>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="shot" data-full="img/night.jpg" data-caption-key="cap_night">
+							<img src="img/night.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_night">Night match</span>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="shot" data-full="img/rain.jpg" data-caption-key="cap_rain">
+							<img src="img/rain.jpg" alt="" width="1600" height="900" loading="lazy">
+							<span class="shot-cap" data-i18n="cap_rain">Rain</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</section>
 
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
+		<section class="section download" id="download" aria-labelledby="dl-title">
+			<div class="wrap">
+				<h2 id="dl-title" data-i18n="dl_title">Download</h2>
+				<p class="section-lead" data-i18n="dl_lead">Portable builds — unzip and play. No installer. Settings live in your user profile.</p>
+				<div class="dl-grid">
+					<article class="dl-card" data-os="windows">
+						<h3>Windows</h3>
+						<p class="dl-meta" data-i18n="dl_win_meta">x64 · ~57 MB zip · single .exe</p>
+						<a class="btn btn-dl" id="dl-win"
+							href="https://github.com/hikalkan/mega-soccer/releases/latest/download/ArcadeSoccer-windows-x64.zip"
+							data-i18n="dl_win_btn">Download for Windows</a>
+						<ol class="dl-steps">
+							<li data-i18n="dl_win_1">Unzip anywhere and run ArcadeSoccer.exe.</li>
+							<li data-i18n="dl_win_2">If SmartScreen warns: More info → Run anyway.</li>
+						</ol>
+					</article>
+					<article class="dl-card" data-os="mac">
+						<h3>macOS</h3>
+						<p class="dl-meta" data-i18n="dl_mac_meta">Universal · ~79 MB zip · Apple Silicon + Intel</p>
+						<a class="btn btn-dl" id="dl-mac"
+							href="https://github.com/hikalkan/mega-soccer/releases/latest/download/ArcadeSoccer-macos.zip"
+							data-i18n="dl_mac_btn">Download for macOS</a>
+						<ol class="dl-steps">
+							<li data-i18n="dl_mac_1">Unzip, then Control-click the app → Open → Open.</li>
+							<li data-i18n="dl_mac_2">If macOS says it is damaged, run this in Terminal:</li>
+						</ol>
+						<div class="code-row">
+							<code id="xattr-cmd">xattr -dr com.apple.quarantine "Arcade Soccer.app"</code>
+							<button type="button" class="btn btn-copy" id="copy-xattr" data-i18n="copy">Copy</button>
+						</div>
+					</article>
+				</div>
+				<p class="dl-browser">
+					<span data-i18n="dl_or">Prefer zero install?</span>
+					<a href="play/" data-i18n="dl_browser_link">Play in the browser</a>
+				</p>
+			</div>
+		</section>
 
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
-}
+		<section class="section controls" id="controls" aria-labelledby="ctl-title">
+			<div class="wrap">
+				<h2 id="ctl-title" data-i18n="ctl_title">Controls</h2>
+				<p class="section-lead" data-i18n="ctl_lead">A small set. Same actions on keyboard and gamepad.</p>
+				<div class="ctl-table-wrap">
+					<table class="ctl-table">
+						<thead>
+							<tr>
+								<th data-i18n="ctl_action">Action</th>
+								<th data-i18n="ctl_keys">Keyboard</th>
+								<th data-i18n="ctl_pad">Gamepad</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td data-i18n="ctl_move">Move</td><td>Arrows</td><td>Left stick</td></tr>
+							<tr><td data-i18n="ctl_shoot">Shoot / press</td><td>D</td><td>B</td></tr>
+							<tr><td data-i18n="ctl_pass">Pass</td><td>S</td><td>A</td></tr>
+							<tr><td data-i18n="ctl_through">Through pass</td><td>W</td><td>Y</td></tr>
+							<tr><td data-i18n="ctl_lob">Lob / slide</td><td>A</td><td>X</td></tr>
+							<tr><td data-i18n="ctl_skill">Skill / shield</td><td>Space / Q</td><td>RB</td></tr>
+							<tr><td data-i18n="ctl_switch">Switch player</td><td>Q</td><td>LB</td></tr>
+							<tr><td data-i18n="ctl_cam">Camera</td><td>L</td><td>—</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
 
-#status {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
-}
+		<section class="section philosophy" id="philosophy" aria-labelledby="phil-title">
+			<div class="wrap">
+				<h2 id="phil-title" data-i18n="phil_title">Play football, don't manage it</h2>
+				<p class="section-lead" data-i18n="phil_lead">The only edge is playing better. No menu setting or meta-strategy puts anyone ahead before kickoff.</p>
+				<ul class="phil-grid">
+					<li>
+						<h3 data-i18n="phil_1_t">Equal players</h3>
+						<p data-i18n="phil_1_b">No pace, shooting or height stats. Shirt numbers 1–11 are identity only.</p>
+					</li>
+					<li>
+						<h3 data-i18n="phil_2_t">No condition systems</h3>
+						<p data-i18n="phil_2_b">No stamina, form, morale or injuries that change how the match plays.</p>
+					</li>
+					<li>
+						<h3 data-i18n="phil_3_t">No progression</h3>
+						<p data-i18n="phil_3_b">No XP, levels or upgrades. A long-time player is better only because they play better.</p>
+					</li>
+					<li>
+						<h3 data-i18n="phil_4_t">No tactics management</h3>
+						<p data-i18n="phil_4_b">No sliders or instructions. A few balanced formations, locked for the match.</p>
+					</li>
+					<li>
+						<h3 data-i18n="phil_5_t">No hidden modifiers</h3>
+						<p data-i18n="phil_5_b">No momentum scripting, home advantage or weather that changes physics.</p>
+					</li>
+					<li>
+						<h3 data-i18n="phil_6_t">Small control set</h3>
+						<p data-i18n="phil_6_b">Move, pass, through, lob, shoot, skill, switch. Title → pick teams → kick off.</p>
+					</li>
+				</ul>
+				<p class="phil-note" data-i18n="phil_diff">Difficulty only changes how well the CPU decides — never the physics, never your teammates.</p>
+			</div>
+		</section>
+	</main>
 
-#status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
-}
-
-#status-splash.show-image--false {
-	display: none;
-}
-
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-}
-
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
-}
-
-#status-progress, #status-notice {
-	display: none;
-}
-
-#status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
-}
-
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
-	text-align: center;
-	z-index: 1;
-}
-		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<link rel="manifest" href="index.manifest.json">
-
-	</head>
-	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
-
-		<noscript>
-			Your browser does not support JavaScript.
-		</noscript>
-
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
+	<footer class="foot">
+		<div class="wrap foot-inner">
+			<p data-i18n="foot_line">Independent arcade football. Original team names only — no real clubs or players.</p>
+			<p class="foot-meta">
+				<span data-i18n="foot_fonts">Fonts: Russo One &amp; Barlow (OFL).</span>
+				<a href="https://github.com/hikalkan/mega-soccer" rel="noopener">GitHub</a>
+			</p>
 		</div>
+	</footer>
 
-		<script src="index.js"></script>
-		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":19939368,"index.wasm":38820072},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
-const GODOT_THREADS_ENABLED = true;
-const engine = new Engine(GODOT_CONFIG);
+	<dialog id="lightbox" class="lightbox" aria-label="Screenshot">
+		<form method="dialog">
+			<button type="submit" class="lb-close" aria-label="Close">&times;</button>
+		</form>
+		<img id="lb-img" src="" alt="">
+		<p id="lb-cap" class="lb-cap"></p>
+	</dialog>
 
-(function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
-
-	let initializing = true;
-	let statusMode = '';
-
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
-	}
-
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
-	function displayFailureNotice(err) {
-		console.error(err);
-		if (err instanceof Error) {
-			setStatusNotice(err.message);
-		} else if (typeof err === 'string') {
-			setStatusNotice(err);
-		} else {
-			setStatusNotice('An unknown error occurred.');
-		}
-		setStatusMode('notice');
-		initializing = false;
-	}
-
-	const missing = Engine.getMissingFeatures({
-		threads: GODOT_THREADS_ENABLED,
-	});
-
-	const COI_RELOAD_KEY = 'godot-coi-reload';
-
-	function reloadForCrossOriginIsolation() {
-		// Service worker must control this document before COOP/COEP headers apply.
-		// Godot's stock shell rejects with "Service worker already exists" and never
-		// reloads, which leaves a black screen until a manual refresh.
-		try {
-			if (sessionStorage.getItem(COI_RELOAD_KEY)) {
-				const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-				displayFailureNotice(missingMsg + missing.join('\n'));
-				return;
-			}
-			sessionStorage.setItem(COI_RELOAD_KEY, '1');
-		} catch (err) {
-			// sessionStorage can throw in private mode; still attempt one reload.
-		}
-		window.location.reload();
-	}
-
-	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			// Install if needed, then reload so the worker can control the page and inject headers.
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return null;
-					}
-					return engine.installServiceWorker();
-				}),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				reloadForCrossOriginIsolation();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-				reloadForCrossOriginIsolation();
-			});
-		} else {
-			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-			displayFailureNotice(missingMsg + missing.join('\n'));
-		}
-	} else {
-		try {
-			sessionStorage.removeItem(COI_RELOAD_KEY);
-		} catch (err) {
-			// ignore
-		}
-		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
-	}
-}());
-		</script>
-	</body>
+	<script src="landing.js" defer></script>
+</body>
 </html>
-
