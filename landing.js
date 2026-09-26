@@ -22,7 +22,7 @@
 			dl_lead: "Taşınabilir sürümler — zip'i aç ve oyna. Kurulum yok. Ayarlar kullanıcı profilinde kalır.",
 			dl_win_meta: "x64 · ~57 MB zip · tek .exe",
 			dl_win_btn: "Windows için indir",
-			dl_win_1: "Herhangi bir yere aç ve ArcadeSoccer.exe'yi çalıştır.",
+			dl_win_1: "Herhangi bir yere aç ve NonameSoccer.exe'yi çalıştır.",
 			dl_win_2: "SmartScreen uyarırsa: More info → Run anyway.",
 			dl_mac_meta: "Universal · ~79 MB zip · Apple Silicon + Intel",
 			dl_mac_btn: "macOS için indir",
@@ -83,7 +83,7 @@
 			dl_lead: "Portable builds — unzip and play. No installer. Settings live in your user profile.",
 			dl_win_meta: "x64 · ~57 MB zip · single .exe",
 			dl_win_btn: "Download for Windows",
-			dl_win_1: "Unzip anywhere and run ArcadeSoccer.exe.",
+			dl_win_1: "Unzip anywhere and run NonameSoccer.exe.",
 			dl_win_2: "If SmartScreen warns: More info → Run anyway.",
 			dl_mac_meta: "Universal · ~79 MB zip · Apple Silicon + Intel",
 			dl_mac_btn: "Download for macOS",
@@ -126,7 +126,7 @@
 		}
 	};
 
-	var LANG_KEY = "mega-soccer-lang";
+	var LANG_KEY = "noname-soccer-lang";
 	var lang = "en";
 
 	function detectLang() {
@@ -155,7 +155,7 @@
 		});
 		try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
 		var meta = document.querySelector('meta[name="description"]');
-		if (meta) meta.setAttribute("content", "Mega Soccer — " + (dict.lede || ""));
+		if (meta) meta.setAttribute("content", "Noname Soccer — " + (dict.lede || ""));
 	}
 
 	function setupLang() {
@@ -242,9 +242,9 @@
 				var path = "/";
 				try { path = new URL(scope).pathname; } catch (e) { path = scope; }
 				if (path.indexOf("/play") !== -1) return;
-				// Old game SW was registered at /mega-soccer/ (or site root in preview).
+				// Old game SW was registered at /noname-soccer/ (or site root in preview).
 				var normalized = path.replace(/\/+$/, "") || "/";
-				if (normalized === "/" || /\/mega-soccer$/i.test(normalized)) {
+				if (normalized === "/" || /\/noname-soccer$/i.test(normalized) || /\/mega-soccer$/i.test(normalized)) {
 					reg.unregister();
 				}
 			});
